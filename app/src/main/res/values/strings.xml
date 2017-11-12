@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Remote\nMeeting</string>
+
+    <string name="format_description">%1$dx%2$d @ %3$d fps</string>
+    <string name="connecting_to">Connecting to: %1$s</string>
+
+</resources>

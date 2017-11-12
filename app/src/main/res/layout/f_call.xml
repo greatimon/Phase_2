@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:id="@+id/popup_menu"
+        android:layout_width="150dp"
+        android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:alpha="0.5"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_contact_person_script"
+                android:gravity="center"
+                android:paddingBottom="3dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="대화상대"
+                android:textColor="#4b4b4b"
+                android:textSize="12dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/default_profile"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|start"
+                    android:text="그레아티"
+                    android:textColor="#cdd1d0"
+                    android:textSize="12dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#c6c6c6"
+                android:alpha="0.5"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="7dp"
+                    android:paddingBottom="3dp"
+                    android:src="@drawable/invite"/>
+                <ImageView
+                    android:id="@+id/button_call_switch_camera"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="13dp"
+                    android:paddingBottom="3dp"
+                    android:src="@drawable/camera_rotate"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="4dp"
+                    android:gravity="center|top"
+                    android:text="초대"
+                    android:textColor="#cdd1d0"
+                    android:textSize="11dp"
+                    />
+                <TextView
+                    android:id="@+id/Textview_call_switch_camera"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="4dp"
+                    android:gravity="center|top"
+                    android:text="카메라 전환"
+                    android:textColor="#cdd1d0"
+                    android:textSize="11dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="7dp">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="7dp"
+                    android:paddingBottom="3dp"
+                    android:src="@drawable/meeting_log"/>
+                <ImageView
+                    android:id="@+id/button_call_toggle_mic"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="3dp"
+                    android:src="@drawable/mic_on"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="4dp"
+                    android:gravity="center|top"
+                    android:text="회의록"
+                    android:textColor="#cdd1d0"
+                    android:textSize="11dp"
+                    />
+                <TextView
+                    android:id="@+id/text_call_toggle_mic"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="4dp"
+                    android:gravity="center|top"
+                    android:text="마이크"
+                    android:textColor="#cdd1d0"
+                    android:textSize="11dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    android:id="@+id/button_call_disconnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/exit"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="나가기"
+                        android:textColor="#cdd1d0"
+                        android:textSize="13dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--메뉴 팝업 아이콘-->
+    <ImageView
+        android:id="@+id/popup_menu_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginLeft="9dp"
+        android:src="@drawable/menu_call"
+        android:layout_toRightOf="@+id/popup_menu"
+        android:clickable="true"/>
+
+    <!--마이크 상태 표시-->
+    <ImageView
+        android:id="@+id/mic_on_show"
+        android:visibility="visible"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/mic_on_show"
+        android:layout_alignParentRight="true"/>
+    <ImageView
+        android:id="@+id/mic_off_show"
+        android:visibility="gone"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/mic_off_show"
+        android:layout_alignParentRight="true"/>
+
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/contact_name_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:layout_margin="8dp"/>
+
+
+
+
+    <!--시크바 내용 표시 텍스트뷰 / 시크바-->
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/capture_format_text_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/capture_format_slider_call"
+        android:textSize="16sp"
+        android:text="Slide to change capture format"/>
+
+    <SeekBar
+        android:visibility="gone"
+        android:id="@+id/capture_format_slider_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:progress="50"
+        android:layout_margin="8dp"/>
+
+</RelativeLayout>
