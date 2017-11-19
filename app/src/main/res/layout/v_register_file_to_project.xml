@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="230dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#4CAF50"
+        android:gravity="center|start"
+        android:paddingLeft="15dp"
+        android:text="회의 파일 등록"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:background="#d1d1d1" />
+
+    <Button
+        android:id="@+id/pdf"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#FFFFFF"
+        android:gravity="center|start"
+        android:paddingLeft="15dp"
+        android:textAllCaps="false"
+        android:text="PDF 파일"
+        android:textColor="#696969"
+        android:textSize="15dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:background="#d1d1d1" />
+
+    <Button
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#FFFFFF"
+        android:gravity="center|start"
+        android:paddingLeft="15dp"
+        android:textAllCaps="false"
+        android:text="Image 파일"
+        android:textColor="#696969"
+        android:textSize="15dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:background="#d1d1d1" />
+
+    <Button
+        android:id="@+id/all"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#FFFFFF"
+        android:gravity="center|start"
+        android:paddingLeft="15dp"
+        android:textAllCaps="false"
+        android:text="PDF / Image 모두 보기"
+        android:textColor="#696969"
+        android:textSize="15dp"/>
+
+</LinearLayout>

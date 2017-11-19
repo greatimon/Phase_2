@@ -25,15 +25,17 @@
         android:layout_height="match_parent" />
 
     <RelativeLayout
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginRight="80dp"
         android:gravity="center"
-        android:layout_gravity="center_horizontal" >
+        android:layout_gravity="end">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/shape_time_tic"
             />
         <Chronometer
@@ -41,9 +43,10 @@
             tools:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="17dp"
+            android:textSize="13dp"
             android:textColor="#cecece"
             android:gravity="center"
+            android:layout_centerVertical="true"
             android:layout_gravity="center"/>
 
     </RelativeLayout>

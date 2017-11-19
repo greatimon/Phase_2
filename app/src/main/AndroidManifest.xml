@@ -73,6 +73,15 @@
             android:screenOrientation="landscape"
             android:exported="false">
         </activity>
+
+        // 신고하기
+        <activity
+            android:name=".Activity.Register_file_to_project_A"
+            android:theme="@android:style/Theme.Dialog"
+            android:screenOrientation="landscape"
+            android:exported="false"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
     </application>
 
 </manifest>

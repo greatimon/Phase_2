@@ -27,6 +27,8 @@ import android.widget.Toast;
 import com.example.jyn.remotemeeting.Dialog.Out_confirm_D;
 import com.example.jyn.remotemeeting.Fragment.Call_F;
 import com.example.jyn.remotemeeting.Fragment.Hud_F;
+import com.example.jyn.remotemeeting.Otto.BusProvider;
+import com.example.jyn.remotemeeting.Otto.Event;
 import com.example.jyn.remotemeeting.R;
 import com.example.jyn.remotemeeting.Static;
 import com.example.jyn.remotemeeting.UnhandledExceptionHandler;
@@ -123,6 +125,7 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
     private boolean screencaptureEnabled = false;
     private static Intent mediaProjectionPermissionResultData;
     private static int mediaProjectionPermissionResultCode;
+    public static ArrayList<String> share_img = new ArrayList<>();
 
     // True if local view is in the fullscreen renderer.
     // 로컬 뷰가 풀 스크린 렌더러에있는 경우는 true
@@ -133,7 +136,8 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
     private Hud_F hud_f;
 //    private CpuMonitor cpuMonitor;
 
-    final int REQUEST_OUT=1000;
+    final int REQUEST_OUT = 1000;
+    public final static int REQUEST_GET_LOCAL_FILE = 1001;
     public static Handler hangup_confirm;
 
     Chronometer timeElapsed;
@@ -178,6 +182,7 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
 
         // Swap feeds on pip view click.
         /** 클릭 시, 뷰 스왑 */
+        pipRenderer.setClickable(false);
         pipRenderer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -463,7 +468,7 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
 
 
     /**---------------------------------------------------------------------------
-     메소드 ==> onActivityResult -- 통화 종료,
+     메소드 ==> onActivityResult -- 통화 종료 | 로컬 파일 가져오기
      ---------------------------------------------------------------------------*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -476,6 +481,16 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
                 logToast.cancel();
             }
             activityRunning = false;
+        }
+
+        /** 로컬 파일 가져오기 */
+        if(requestCode==REQUEST_GET_LOCAL_FILE && resultCode==RESULT_OK) {
+            String target_format = data.getStringExtra("FORMAT");
+            Log.d(TAG, "target_format: " + target_format);
+
+            // otto 를 통해, 프래그먼트로 이벤트 전달하기
+            Event.ActivityFragmentMessage activityFragmentMessageEvent = new Event.ActivityFragmentMessage(target_format);
+            BusProvider.getBus().post(activityFragmentMessageEvent);
         }
 
         // 퍼미션?
@@ -558,6 +573,10 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
     @Override
     public void onStart() {
         super.onStart();
+
+        // otto 등록
+        BusProvider.getBus().register(this);
+
         activityRunning = true;
         // Video is not paused for screencapture. See onPause.
         if (peerConnectionClient != null && !screencaptureEnabled) {
@@ -578,6 +597,9 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
             rootEglBase.release();
         }
         timeElapsed.stop();
+
+        // otto 등록 해제
+        BusProvider.getBus().unregister(this);
         super.onDestroy();
     }
 
@@ -725,6 +747,8 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
         }
         // Enable statistics callback.
         peerConnectionClient.enableStatsEvents(true, STAT_CALLBACK_PERIOD);
+        /** 여기야여기 */
+        pipRenderer.setClickable(true);
         setSwappedFeeds(false /* isSwappedFeeds */);
     }
 
@@ -1004,6 +1028,8 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
     }
 
 
+
+
     /**---------------------------------------------------------------------------
      클릭이벤트 ==> 소프트 키보드 백버튼 오버라이드 -- 방송 나가기 컨펌 -- 레이아웃 다이얼로그로 띄우기
      ---------------------------------------------------------------------------*/
@@ -1012,6 +1038,4 @@ public class Call_A extends Activity implements AppRTCClient.SignalingEvents,
         Intent intent = new Intent(Call_A.this, Out_confirm_D.class);
         startActivityForResult(intent, REQUEST_OUT);
     }
-
-
 }

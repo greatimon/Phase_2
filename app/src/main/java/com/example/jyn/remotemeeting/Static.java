@@ -5,7 +5,7 @@ package com.example.jyn.remotemeeting;
  */
 
 public class Static {
-    public static String ROOM_ID = "67953693"; // 테스트용
+    public static String ROOM_ID = "53236556"; // 테스트용
     public static String WEBRTC_URL = "https://appr.tc";
 
     /** 인텐트용 공유 키 */

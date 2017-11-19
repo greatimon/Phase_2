@@ -1,6 +1,7 @@
 package com.example.jyn.remotemeeting.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -57,6 +58,7 @@ public class Main_before_login_A extends AppCompatActivity {
     }
 
     public void login_email(View view) {
+        onShared_Initializing();
         Intent intent = new Intent(this, Main_after_login_A.class);
         startActivity(intent);
     }
@@ -65,5 +67,27 @@ public class Main_before_login_A extends AppCompatActivity {
     }
 
     public void forgot_pw(View view) {
+    }
+
+
+    //쉐어드 초기화_ 테스트용
+    public void onShared_Initializing() {
+        SharedPreferences auto_increament = getSharedPreferences("auto_increament", MODE_PRIVATE);
+        SharedPreferences.Editor edit_Auto_incre = auto_increament.edit();
+        edit_Auto_incre.clear().apply();
+
+        SharedPreferences meeting_num = getSharedPreferences("meeting_num", MODE_PRIVATE);
+        SharedPreferences.Editor edit_meeting_num = meeting_num.edit();
+        edit_meeting_num.clear().apply();
+//
+//        /** 페이스북 email 정보 제공 거절 여부 */
+//        SharedPreferences Facebook_doNot_ask_email = getSharedPreferences("facebook_doNot_ask_email", MODE_PRIVATE);
+//        SharedPreferences.Editor Facebook_doNot_ask_email_edit = Facebook_doNot_ask_email.edit();
+//        Facebook_doNot_ask_email_edit.clear().apply();
+
+//        /** fireBase Token */
+//        SharedPreferences fireBase_token_shared = getSharedPreferences("fireBase_token", MODE_PRIVATE);
+//        SharedPreferences.Editor fireBase_token_edit = fireBase_token_shared.edit();
+//        fireBase_token_edit.clear().apply();
     }
 }

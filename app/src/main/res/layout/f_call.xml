@@ -1,10 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/root_v"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--이미지 공유 화면-->
+
+    <!--파일함-->
+    <RelativeLayout
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:id="@+id/popup_file_manager"
+        android:layout_width="300dp"
+        android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:alpha="0.5"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center">
+                <ImageView
+                    tools:visibility="visible"
+                    android:id="@+id/back_to_menu"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/to_parent"/>
+                <ImageView
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:id="@+id/add_files"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/add_text_2"/>
+
+                <ImageView
+                    android:id="@+id/close_popup"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/exit_1"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/file_box_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        tools:text="회의 파일함"
+                        android:textColor="#cdd1d0"
+                        android:textSize="15dp"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#c6c6c6"
+                android:alpha="0.5"/>
+
+            <android.support.v7.widget.RecyclerView
+                tools:visibility="visible"
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--팝업 메뉴-->
     <RelativeLayout
         android:visibility="gone"
         tools:visibility="visible"
@@ -125,15 +213,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="7dp">
+
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:paddingTop="10dp"
+                    android:paddingBottom="3dp"
                     android:paddingLeft="13dp"
                     android:paddingRight="7dp"
-                    android:paddingBottom="3dp"
-                    android:src="@drawable/meeting_log"/>
+                    android:paddingTop="10dp"
+                    android:src="@drawable/meeting_log" />
                 <ImageView
                     android:id="@+id/button_call_toggle_mic"
                     android:layout_width="0dp"
@@ -149,16 +238,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:paddingLeft="4dp"
                     android:gravity="center|top"
-                    android:text="회의록"
+                    android:paddingLeft="4dp"
+                    android:text="회의 메모"
                     android:textColor="#cdd1d0"
-                    android:textSize="11dp"
-                    />
+                    android:textSize="11dp" />
                 <TextView
                     android:id="@+id/text_call_toggle_mic"
                     android:layout_width="0dp"
@@ -172,10 +261,73 @@
                     />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="10dp"
+                android:background="#c6c6c6"
+                android:alpha="0.5"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="7dp">
+
+                <ImageView
+                    android:id="@+id/file_box_IV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/inbox_2" />
+                <ImageView
+                    android:id="@+id/share_img_mode"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="3dp"
+                    android:src="@drawable/share_img_5"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/file_box_IV_text"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|top"
+                    android:paddingLeft="4dp"
+                    android:text="회의 파일함"
+                    android:textColor="#cdd1d0"
+                    android:textSize="11dp" />
+                <TextView
+                    android:id="@+id/share_img_mode_text"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="4dp"
+                    android:gravity="center|top"
+                    android:text="파일 화면 공유"
+                    android:textColor="#cdd1d0"
+                    android:textSize="11dp"
+                    />
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -209,6 +361,7 @@
 
     <!--메뉴 팝업 아이콘-->
     <ImageView
+        tools:visibility="visible"
         android:id="@+id/popup_menu_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -236,6 +389,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:src="@drawable/mic_off_show"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
         android:layout_alignParentRight="true"/>
 
 
